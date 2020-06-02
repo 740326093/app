@@ -1,17 +1,152 @@
 <DOCTYPE html>
-    <html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>测试下载</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+			<style type="text/css">
+				* {
+					margin: 0;
+					padding: 0;
+				}
 
-    <head>
-        <meta charset="utf-8">
-        <title>测试下载</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    </head>
+				a {
+					text-decoration: none;
+				}
 
-    <body>
-        <a id="clickMe"
-            href="itms-services:///?action=download-manifest&url=https://code.aliyun.com/MrWangWei/appDownload/raw/master/manifest.plist">点我下载iOS版本</a>
-        
-    </body>
+				.top-title {
+					text-align: center;
+					color: #333333;
+					background-color: #efeff7;
+					box-sizing: border-box;
+					font-size: 15px;
+					height: 40px;
+					line-height: 40px;
+					padding: 0 10px;
+					position: relative;
+				}
 
-    </html>
-</DOCTYPE>
+				body {
+					background: #fef6fb;
+				}
+
+				.downpage {
+					padding-top: 100px;
+
+					overflow: hidden;
+				}
+
+				.downpage .downbtn {
+					width: 100%;
+					margin-bottom: 80px;
+				}
+
+				.downpage .button {
+					width: 220px;
+					height: 50px;
+					line-height: 50px;
+					color: #fff;
+					font-size: 18px;
+					margin: 0 auto 20px;
+					border: 0;
+					background: linear-gradient(to right, #6673ea, #525dcd);
+					box-shadow: 0 5px 10px rgba(94, 106, 222, 0.42);
+					position: relative;
+					display: block;
+					box-sizing: border-box;
+					text-align: center;
+					border-radius: 2px;
+				}
+
+				.guidepopbox {
+					width: 100%;
+					position: fixed;
+					top: 0%;
+					left: 0%;
+					display: none;
+				}
+
+				.guidepopbox p {
+					padding: 20px;
+					line-height: 1.5;
+					text-align: center;
+					font-size: 16px;
+					font-weight: bold;
+					color: #fff;
+					margin: 10px auto;
+				}
+
+				.guidebox {
+					overflow: hidden;
+				}
+
+				.guidepic {
+					float: right;
+					width: 175px;
+					margin: 10px;
+				}
+
+				.mask {
+					width: 100%;
+					height: 100%;
+					background: rgba(0, 0, 0, 0.8);
+					position: fixed;
+					left: 0;
+					top: 0;
+					display: none;
+				}
+			</style>
+		</head>
+
+		<body>
+			<div class="top-title">云财富金服</div>
+
+			<div class="downpage">
+				<img class="downbtn" src="img/downgimg1.png" alt />
+				<a id="clickMe" class="button" href="itms-services:///?action=download-manifest&url=https://code.aliyun.com/MrWangWei/appDownload/raw/master/manifest.plist">ios下载领取</a>
+
+				<div class="mask"></div>
+				<div class="guidepopbox">
+					<div class="guidebox">
+						<img class="guidepic" src="img/guidearrow.png" />
+					</div>
+					<p>点击右上角 打开浏览器下载</p>
+				</div>
+			</div>
+
+			<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+			<script type="text/javascript">
+				$(function() {
+					$("#clickMe").click(function() {
+						$(".guidepopbox,.mask").fadeIn();
+					});
+					$(".mask").click(function() {
+						$(".guidepopbox,.mask").fadeOut();
+					});
+				});
+			</script>
+			<script type="text/javascript">
+				window.onload = function() {
+					if (isWeiXin()) {
+						var p = document.getElementsByClassName('mask');
+						p[0].style.display = 'block';
+						var p = document.getElementsByClassName('guidepopbox');
+						p[0].style.display = 'block';
+					}
+				}
+
+				function isWeiXin() {
+					var ua = window.navigator.userAgent.toLowerCase();
+					if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+						return true;
+					} else {
+						return false;
+					}
+				}
+
+				<
+				/body>
+
+				<
+				/html> < /
+				DOCTYPE >
